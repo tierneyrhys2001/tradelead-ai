@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<title>TradeLead AI</title>
+<style>
+:root{
+  --navy:#101827;--blue:#3563e9;--blue2:#eef3ff;--bg:#f5f7fb;
+  --card:#fff;--ink:#101828;--muted:#667085;--line:#e4e7ec;
+  --green:#16a34a;--red:#dc2626;--gold:#f59e0b
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+body{padding-bottom:84px}
+.topbar{height:68px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:sticky;top:0;z-index:20}
+.brand{font-weight:900;font-size:22px;letter-spacing:-.5px}
+.brand span{margin-right:7px}
+.role{font-size:12px;font-weight:800;background:#2d374b;border-radius:999px;padding:8px 11px}
+main{max-width:760px;margin:0 auto;padding:18px 16px 30px}
+.screen{display:none}.screen.active{display:block}
+.hero{padding:24px 4px 18px}
+.eyebrow{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:38px;line-height:1.05;letter-spacing:-1.5px;margin:10px 0 12px}
+h2{font-size:24px;letter-spacing:-.6px;margin:0 0 8px}
+h3{font-size:18px;margin:0 0 7px}
+p{line-height:1.5}.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 8px 30px rgba(16,24,40,.05);margin-bottom:14px}
+.big-card{padding:24px}
+.btn{width:100%;border:0;border-radius:15px;padding:15px 18px;font-weight:850;font-size:16px}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.secondary{background:var(--blue2);color:#2452c8}
+.btn.dark{background:var(--navy);color:#fff}
+.btn.link{background:transparent;color:var(--blue);padding:10px}
+.stack{display:grid;gap:11px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.quick button{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:left;font-weight:800}
+.icon{font-size:25px;display:block;margin-bottom:8px}
+.form{display:grid;gap:15px}
+label{font-size:13px;font-weight:800}
+input,select,textarea{width:100%;margin-top:7px;border:1px solid #d0d5dd;border-radius:13px;padding:14px;background:#fff;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(53,99,233,.12)}
+textarea{min-height:120px;resize:vertical}
+.step{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:750;margin-bottom:15px}
+.step b{color:var(--ink)}
+.progress{height:5px;background:#e8ebf0;border-radius:9px;overflow:hidden;margin-bottom:22px}
+.progress i{display:block;height:100%;background:var(--blue);width:33%}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{border:1px solid var(--line);background:#fff;border-radius:15px;padding:15px;text-align:left;font-weight:800}
+.choice.selected{border:2px solid var(--blue);background:var(--blue2)}
+.success{background:#ecfdf3;border:1px solid #abefc6;border-radius:18px;padding:20px;text-align:center}
+.success .check{font-size:42px}
+.request{border:1px solid var(--line);border-radius:17px;padding:16px;margin-top:10px}
+.row{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.badge{font-size:11px;font-weight:850;border-radius:999px;padding:6px 9px;background:#eef2f7;color:#475467}
+.badge.green{background:#dcfce7;color:#166534}.badge.blue{background:#e0e7ff;color:#3730a3}
+.money{font-size:28px;font-weight:900}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px}
+.stat span{display:block;color:var(--muted);font-size:13px;font-weight:700}.stat b{font-size:30px;display:block;margin-top:6px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 2px 10px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);z-index:30;padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+.bottom button{background:transparent;border:0;color:#667085;font-size:11px;font-weight:800;padding:6px}
+.bottom button.active{color:var(--blue)}
+.bottom .ico{font-size:20px;display:block;margin-bottom:2px}
+.hidden{display:none!important}
+.adminnav{display:flex;gap:8px;overflow:auto;padding-bottom:5px}.adminnav button{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font-weight:800}.adminnav button.active{background:var(--navy);color:#fff}
+.notice{background:#fffaeb;border:1px solid #fedf89;border-radius:14px;padding:13px;font-size:13px;color:#7a4b00}
+@media(min-width:700px){.bottom{display:none}body{padding-bottom:0}.quick button:hover,.choice:hover{transform:translateY(-1px)}}
+@media(max-width:420px){h1{font-size:34px}.grid2{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span>⚡</span>TradeLead AI</div>
+  <div class="role" id="roleLabel">Customer</div>
+</header>
+
+<main>
+
+<!-- CUSTOMER HOME -->
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="eyebrow">Australian trade services</div>
+    <h1>Get the right tradie for your job.</h1>
+    <p class="muted">Tell us what you need. TradeLead AI helps qualify your request and match it with suitable local trade businesses.</p>
+  </div>
+
+  <div class="card big-card">
+    <div class="stack">
+      <button class="btn primary" onclick="show('request')">Get a tradie →</button>
+      <button class="btn secondary" onclick="show('requests')">View my requests</button>
+    </div>
+  </div>
+
+  <div class="quick">
+    <button onclick="startTrade('Plumber')"><span class="icon">🔧</span>Plumber</button>
+    <button onclick="startTrade('Electrician')"><span class="icon">⚡</span>Electrician</button>
+    <button onclick="startTrade('Painter')"><span class="icon">🎨</span>Painter</button>
+    <button onclick="startTrade('Handyman')"><span class="icon">🛠️</span>Handyman</button>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3>Why TradeLead AI?</h3>
+    <p class="muted" style="margin-bottom:0">✓ Fast response<br>✓ Suitable local businesses<br>✓ No obligation to accept a quote</p>
+  </div>
+</section>
+
+<!-- CUSTOMER REQUEST -->
+<section id="request" class="screen">
+  <div class="step"><span>Request a tradie</span><b id="stepText">1 of 3</b></div>
+  <div class="progress"><i id="progress"></i></div>
+
+  <div id="requestStep1">
+    <div class="hero" style="padding-top:0"><h2>What trade do you need?</h2><p class="muted">Choose the closest match.</p></div>
+    <div class="choice-grid" id="tradeChoices"></div>
+    <button class="btn primary" style="margin-top:18px" onclick="nextStep(2)">Continue →</button>
+  </div>
+
+  <div id="requestStep2" class="hidden">
+    <div class="hero" style="padding-top:0"><h2>Tell us about the job</h2><p class="muted">The more detail you give us, the better we can match you.</p></div>
+    <div class="card">
+      <div class="form">
+        <label>What needs doing?
+          <textarea id="job" placeholder="Example: Kitchen tap is leaking and needs replacing."></textarea>
+        </label>
+        <div class="grid2">
+          <label>Suburb / postcode<input id="location" placeholder="e.g. 2000"></label>
+          <label>Urgency<select id="urgency"><option>Within a week</option><option>Within 48 hours</option><option>Today</option><option>Emergency</option></select></label>
+        </div>
+      </div>
+    </div>
+    <div class="grid2">
+      <button class="btn secondary" onclick="nextStep(1)">← Back</button>
+      <button class="btn primary" onclick="nextStep(3)">Continue →</button>
+    </div>
+  </div>
+
+  <div id="requestStep3" class="hidden">
+    <div class="hero" style="padding-top:0"><h2>How can the tradie contact you?</h2><p class="muted">We'll only use these details for your request.</p></div>
+    <div class="card">
+      <div class="form">
+        <label>Name<input id="name" placeholder="Your name"></label>
+        <label>Phone<input id="phone" type="tel" placeholder="04xx xxx xxx"></label>
+        <label>Email<input id="email" type="email" placeholder="you@example.com"></label>
+      </div>
+    </div>
+    <div class="grid2">
+      <button class="btn secondary" onclick="nextStep(2)">← Back</button>
+      <button class="btn primary" onclick="submitLead()">Find my tradie</button>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER SUCCESS -->
+<section id="success" class="screen">
+  <div class="hero" style="text-align:center">
+    <div class="success">
+      <div class="check">✓</div>
+      <h2>Request received!</h2>
+      <p id="successText" class="muted"></p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>What happens next?</h3>
+    <p class="muted">TradeLead AI qualifies your request and looks for suitable trade businesses. We'll update your request when there's activity.</p>
+  </div>
+  <div class="stack">
+    <button class="btn primary" onclick="show('requests')">View my request</button>
+    <button class="btn secondary" onclick="show('home')">Back to home</button>
+  </div>
+</section>
+
+<!-- CUSTOMER REQUESTS -->
+<section id="requests" class="screen">
+  <div class="hero" style="padding-bottom:8px"><div class="eyebrow">Customer</div><h2>My requests</h2><p class="muted">Track requests you've submitted on this device.</p></div>
+  <div id="customerRequests"></div>
+</section>
+
+<!-- TRADIE HOME -->
+<section id="tradie" class="screen">
+  <div class="hero">
+    <div class="eyebrow">TradeLead AI for businesses</div>
+    <h1>Get new jobs without chasing them.</h1>
+    <p class="muted">Register your business and see qualified customer requests that match your trade and area.</p>
+  </div>
+
+  <div class="statgrid">
+    <div class="stat"><span>Available leads</span><b id="tLeads">0</b></div>
+    <div class="stat"><span>Jobs claimed</span><b id="tClaimed">0</b></div>
+  </div>
+
+  <div class="section-title"><h2>Tradie profile</h2></div>
+  <div class="card">
+    <form id="tradieForm" class="form">
+      <label>Business name<input id="biz" required placeholder="Example Plumbing Pty Ltd"></label>
+      <div class="grid2">
+        <label>Trade<select id="ttrade"><option>Plumber</option><option>Electrician</option><option>Air conditioning / HVAC</option><option>Painter</option><option>Landscaper</option><option>Handyman</option><option>Builder</option><option>Removalist</option></select></label>
+        <label>Service postcode<input id="tpost" required placeholder="2000"></label>
+      </div>
+      <label>Phone<input id="tphone" required type="tel"></label>
+      <label>Email<input id="temail" required type="email"></label>
+      <button class="btn primary">Save tradie profile</button>
+    </form>
+    <div id="tradieResult" class="hidden" style="margin-top:14px"></div>
+  </div>
+
+  <div class="section-title"><h2>Matching leads</h2><span class="badge blue">Demo</span></div>
+  <div id="tradieLeads"></div>
+</section>
+
+<!-- ADMIN -->
+<section id="admin" class="screen">
+  <div class="hero">
+    <div class="eyebrow">Operations</div>
+    <h1>Admin dashboard</h1>
+    <p class="muted">Monitor leads, qualification, tradies and potential revenue.</p>
+  </div>
+  <div class="statgrid">
+    <div class="stat"><span>Customer leads</span><b id="sLeads">0</b></div>
+    <div class="stat"><span>Qualified</span><b id="sQual">0</b></div>
+    <div class="stat"><span>Tradies</span><b id="sTradies">0</b></div>
+    <div class="stat"><span>Potential revenue</span><b id="sRevenue">$0</b></div>
+  </div>
+  <div class="section-title"><h2>Lead pipeline</h2></div>
+  <div class="adminnav">
+    <button class="active">All</button><button>New</button><button>Qualified</button><button>Claimed</button>
+  </div>
+  <div id="adminLeads" style="margin-top:10px"></div>
+  <div class="notice" style="margin-top:16px">Demo mode: data is stored in this browser. Supabase, authentication, payments and notifications come next.</div>
+</section>
+
+</main>
+
+<nav class="bottom">
+  <button id="navHome" class="active" onclick="show('home')"><span class="ico">⌂</span>Home</button>
+  <button id="navTradie" onclick="show('tradie')"><span class="ico">🔧</span>Tradie</button>
+  <button id="navAdmin" onclick="show('admin')"><span class="ico">▦</span>Admin</button>
+</nav>
+
+<script>
+const LK='tla_leads_v3', TK='tla_tradies_v3';
+const trades=['Plumber','Electrician','Air conditioning / HVAC','Painter','Landscaper','Handyman','Builder','Removalist'];
+const $=id=>document.getElementById(id);
+const getLeads=()=>JSON.parse(localStorage.getItem(LK)||'[]');
+const getTradies=()=>JSON.parse(localStorage.getItem(TK)||'[]');
+const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let selectedTrade='';
+let requestStep=1;
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  $(id).classList.add('active');
+  const customer=['home','request','success','requests'].includes(id);
+  $('roleLabel').textContent=customer?'Customer':id==='tradie'?'Tradie':'Admin';
+  document.querySelectorAll('.bottom button').forEach(b=>b.classList.remove('active'));
+  if(customer)$('navHome').classList.add('active');
+  if(id==='tradie'){$('navTradie').classList.add('active');renderTradie();}
+  if(id==='admin'){$('navAdmin').classList.add('active');renderAdmin();}
+  if(id==='requests')renderRequests();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderTradeChoices(){
+  $('tradeChoices').innerHTML=trades.map(t=>`<button class="choice ${selectedTrade===t?'selected':''}" onclick="selectTrade('${t.replace(/'/g,"\\'")}')">${t}</button>`).join('');
+}
+function selectTrade(t){selectedTrade=t;renderTradeChoices()}
+function startTrade(t){selectedTrade=t;show('request');nextStep(1)}
+function nextStep(n){
+  if(n===2 && !selectedTrade){alert('Please choose a trade first.');return}
+  if(n===3 && (!$('job').value.trim()||!$('location').value.trim())){alert('Please add the job and suburb/postcode.');return}
+  requestStep=n;
+  [1,2,3].forEach(i=>$('requestStep'+i).classList.toggle('hidden',i!==n));
+  $('stepText').textContent=n+' of 3';
+  $('progress').style.width=(n*33.333)+'%';
+}
+function score(x){
+  let s=50;
+  if(x.phone)s+=10;if(x.email)s+=10;if(x.job.length>35)s+=10;
+  if(['Today','Emergency'].includes(x.urgency))s+=10;
+  if(x.location)s+=5;if(x.trade)s+=5;
+  return Math.min(100,s);
+}
+function submitLead(){
+  if(!$('name').value.trim()||!$('phone').value.trim()||!$('email').value.trim()){alert('Please enter your name, phone and email.');return}
+  const x={id:Date.now(),trade:selectedTrade,job:$('job').value.trim(),location:$('location').value.trim(),urgency:$('urgency').value,name:$('name').value.trim(),phone:$('phone').value.trim(),email:$('email').value.trim(),created:new Date().toISOString(),status:'new'};
+  x.score=score(x);x.qualified=x.score>=75;
+  const a=getLeads();a.unshift(x);save(LK,a);
+  $('successText').innerHTML=`Thanks, ${esc(x.name)}. Your <b>${esc(x.trade)}</b> request has been submitted and is being matched.`;
+  $('job').value='';$('location').value='';$('name').value='';$('phone').value='';$('email').value='';
+  selectedTrade='';renderTradeChoices();show('success');
+}
+function renderRequests(){
+  const a=getLeads();
+  $('customerRequests').innerHTML=a.length?a.map(x=>`<div class="request"><div class="row"><b>${esc(x.trade)}</b><span class="badge ${x.status==='claimed'?'green':'blue'}">${esc(x.status)}</span></div><p>${esc(x.job)}</p><div class="muted" style="font-size:13px">${esc(x.location)} · ${esc(x.urgency)}</div><div class="small" style="margin-top:7px">Submitted ${new Date(x.created).toLocaleDateString('en-AU')}</div></div>`).join(''):`<div class="card" style="text-align:center"><h3>No requests yet</h3><p class="muted">Your submitted trade requests will appear here.</p><button class="btn primary" onclick="show('request')">Request a tradie</button></div>`;
+}
+$('tradieForm').onsubmit=e=>{
+  e.preventDefault();
+  const x={id:Date.now(),business:$('biz').value.trim(),trade:$('ttrade').value,postcode:$('tpost').value.trim(),phone:$('tphone').value.trim(),email:$('temail').value.trim(),created:new Date().toISOString()};
+  const a=getTradies();a.push(x);save(TK,a);
+  $('tradieResult').className='success';$('tradieResult').innerHTML=`<b>Profile saved ✓</b><p>${esc(x.business)} is registered as a ${esc(x.trade)} in ${esc(x.postcode)}.</p>`;
+  renderTradie();
+};
+function match(l,t){
+  return l.qualified&&l.trade===t.trade&&String(l.location).replace(/\D/g,'').slice(0,2)===String(t.postcode).replace(/\D/g,'').slice(0,2)&&l.status!=='claimed';
+}
+function renderTradie(){
+  const ts=getTradies(),ls=getLeads();
+  const claimed=ls.filter(x=>x.status==='claimed').length;
+  $('tClaimed').textContent=claimed;
+  $('tLeads').textContent=ts.reduce((n,t)=>n+ls.filter(l=>match(l,t)).length,0);
+  $('tradieLeads').innerHTML=ts.length?ts.map(t=>{
+    const m=ls.filter(l=>match(l,t));
+    return `<div class="card"><div class="row"><div><h3>${esc(t.business)}</h3><div class="muted">${esc(t.trade)} · ${esc(t.postcode)}</div></div><span class="badge green">Active</span></div>
+    ${m.length?m.map(l=>`<div class="request"><div class="row"><b>${esc(l.trade)} job</b><span class="badge green">${l.score}/100</span></div><p>${esc(l.job)}</p><div class="muted" style="font-size:13px">${esc(l.location)} · ${esc(l.urgency)}</div><div class="row" style="margin-top:12px"><span class="money">$45</span><button class="btn primary" style="width:auto;padding:10px 14px" onclick="claim(${l.id},${t.id})">Claim lead</button></div></div>`).join(''):'<div class="muted" style="padding:18px 0;text-align:center">No matching qualified leads yet.</div>'}</div>`;
+  }).join(''):`<div class="card"><h3>Set up your tradie profile</h3><p class="muted">Once registered, matching qualified leads will appear here.</p></div>`;
+}
+function claim(id,tid){
+  const a=getLeads(),i=a.findIndex(x=>x.id===id);
+  if(i>=0){a[i].status='claimed';a[i].claimedBy=tid;save(LK,a);alert('Lead claimed in demo mode. No payment was charged.');renderTradie();renderAdmin();}
+}
+function renderAdmin(){
+  const a=getLeads(),t=getTradies(),q=a.filter(x=>x.qualified),claimed=a.filter(x=>x.status==='claimed');
+  $('sLeads').textContent=a.length;$('sQual').textContent=q.length;$('sTradies').textContent=t.length;$('sRevenue').textContent='$'+(claimed.length*45);
+  $('adminLeads').innerHTML=a.length?a.map(x=>`<div class="request"><div class="row"><b>${esc(x.trade)} · ${esc(x.location)}</b><span class="badge ${x.status==='claimed'?'green':'blue'}">${x.score}/100 · ${esc(x.status)}</span></div><p>${esc(x.job)}</p><div class="muted" style="font-size:13px">${esc(x.name)} · ${esc(x.email)} · ${esc(x.phone)}</div></div>`).join(''):`<div class="card" style="text-align:center"><h3>No leads yet</h3><p class="muted">Customer requests will appear here.</p></div>`;
+}
+renderTradeChoices();renderAdmin();
+</script>
+</body>
+</html>
