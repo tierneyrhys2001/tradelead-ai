@@ -5,13 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TradeLead AI</title>
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--ink:#101828;--muted:#667085;--line:#e4e7ec;--blue:#2563eb;--green:#16a34a;--dark:#111827;--red:#b42318}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
-header{background:var(--dark);color:#fff;padding:16px}header .bar{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-weight:900;font-size:21px}.nav{display:flex;gap:6px}.nav button{background:transparent;color:#fff;border:0;padding:9px 10px;border-radius:8px;font-weight:700}.nav button.active{background:#374151}
-main{max-width:1100px;margin:24px auto;padding:0 16px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 4px 20px #1018280a}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.hero h1{font-size:42px;line-height:1.05;margin:10px 0}.muted{color:var(--muted)}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.pill{padding:8px 11px;border:1px solid var(--line);border-radius:999px;font-size:13px}
-form{display:grid;gap:13px}label{font-weight:700;font-size:13px}input,select,textarea{width:100%;margin-top:6px;border:1px solid #d0d5dd;border-radius:10px;padding:12px;font:inherit}textarea{min-height:105px}button.primary{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:13px 16px;font-weight:800;font-size:15px;cursor:pointer}button.ghost{background:#eef2ff;color:#1d4ed8;border:0;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer}
-button:disabled{opacity:.55;cursor:not-allowed}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hidden{display:none}.success{background:#ecfdf3;border:1px solid #abefc6;border-radius:12px;padding:15px}.error{background:#fef3f2;border:1px solid #fecdca;border-radius:12px;padding:15px;color:var(--red)}.warning{background:#fffaeb;border:1px solid #fedf89;border-radius:12px;padding:12px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:16px;border:1px solid var(--line);border-radius:12px}.stat b{display:block;font-size:27px;margin-top:4px}.lead{border:1px solid var(--line);border-radius:13px;padding:15px;margin-top:10px}.leadtop{display:flex;justify-content:space-between;gap:10px}.score{font-size:12px;background:#dcfce7;color:#166534;padding:5px 8px;border-radius:999px;font-weight:800}.small{font-size:12px;color:var(--muted)}.price{font-size:20px;font-weight:900}.empty{padding:30px;text-align:center;color:var(--muted)}.adminbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.inline{display:flex;gap:8px;align-items:end;flex-wrap:wrap}.inline label{min-width:260px}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.nav button{font-size:11px;padding:7px}}
+:root{--bg:#f7f9fc;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--blue:#2563eb;--blue2:#1d4ed8;--dark:#0b1220;--green:#16a34a;--shadow:0 18px 45px rgba(15,23,42,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff,#f7f9fc 55%,#fff);color:var(--ink)}header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.94);backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}header .bar{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:21px;letter-spacing:-.5px}.nav{display:flex;gap:5px;flex-wrap:wrap}.nav button{background:transparent;color:#cbd5e1;border:0;padding:9px 12px;border-radius:9px;font-weight:750;cursor:pointer}.nav button:hover,.nav button.active{background:#1e293b;color:#fff}main{max-width:1180px;margin:auto;padding:42px 22px 80px}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-bottom:24px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}.hero>div:first-child{background:linear-gradient(135deg,#0b1220,#172554);color:#fff;border:0}.hero>div:first-child .muted{color:#cbd5e1}.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.02;letter-spacing:-2.7px;margin:10px 0 16px}.muted{color:var(--muted);line-height:1.55}.small{font-size:12px;font-weight:850;letter-spacing:.09em;color:#64748b}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.pill{padding:8px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);font-size:13px}form{display:grid;gap:14px}label{font-weight:750;font-size:13px;color:#334155}input,select,textarea{width:100%;margin-top:7px;border:1px solid #cbd5e1;border-radius:11px;padding:12px 13px;font:inherit;outline:none;background:#fff}input:focus,select:focus,textarea:focus{border-color:#60a5fa;box-shadow:0 0 0 3px rgba(37,99,235,.1)}textarea{min-height:110px;resize:vertical}.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.primary{background:var(--blue);color:#fff;border:0;border-radius:11px;padding:13px 16px;font-weight:850;font-size:15px;cursor:pointer;box-shadow:0 8px 20px rgba(37,99,235,.18)}.primary:hover{background:var(--blue2)}.ghost{background:#eff6ff;color:#1d4ed8;border:0;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer}.hidden{display:none}.success{background:#ecfdf3;border:1px solid #bbf7d0;border-radius:12px;padding:15px}.warning{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:18px;border:1px solid var(--line);border-radius:14px;background:#f8fafc}.stat b{display:block;font-size:29px;margin-top:5px}.lead{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:10px;background:#fff}.leadtop{display:flex;justify-content:space-between;gap:10px}.score{font-size:12px;background:#dcfce7;color:#166534;padding:5px 8px;border-radius:999px;font-weight:850}.price{font-size:21px;font-weight:900}.empty{padding:30px;text-align:center;color:var(--muted)}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.plan{position:relative}.plan.featured{border:2px solid #2563eb}.badge{position:absolute;right:18px;top:18px;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900}.plan h3{font-size:20px;margin:0 0 8px}.plan .price{font-size:32px}.plan ul{padding-left:20px;color:#475569;line-height:1.9}@media(max-width:800px){header .bar{align-items:flex-start;flex-direction:column}.nav{width:100%;overflow:auto}.hero{grid-template-columns:1fr}.grid,.plans{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}main{padding-top:25px}.hero h1{font-size:42px}}
 </style>
 </head>
 <body>
@@ -19,6 +14,7 @@ button:disabled{opacity:.55;cursor:not-allowed}.grid{display:grid;grid-template-
 <button class="active" onclick="tab('customer',this)">Customers</button>
 <button onclick="tab('tradie',this)">Tradies</button>
 <button onclick="tab('admin',this)">Admin</button>
+<button onclick="tab('plans',this)">Plans</button><button onclick="tab('plans',this)">Plans</button><button onclick="tab('subscriptions',this)">Plans</button>
 </div></div></header>
 
 <main>
@@ -31,12 +27,12 @@ button:disabled{opacity:.55;cursor:not-allowed}.grid{display:grid;grid-template-
 <div class="grid"><label>Suburb / postcode<input id="location" required placeholder="e.g. 2000"></label><label>Urgency<select id="urgency"><option>Within a week</option><option>Within 48 hours</option><option>Today</option><option>Emergency</option></select></label></div>
 <div class="grid"><label>Name<input id="name" required></label><label>Phone<input id="phone" required type="tel"></label></div>
 <label>Email<input id="email" required type="email"></label>
-<button class="primary" id="submitLead">Find me a tradie →</button></form><div id="customerResult" class="hidden"></div></div>
+<button class="primary">Find me a tradie →</button></form><div id="customerResult" class="hidden"></div></div>
 </div></section>
 
 <section id="tradie" class="hidden">
 <div class="hero">
-<div class="card"><div class="small">TRADELEAD AI FOR BUSINESSES</div><h1>Get new jobs without chasing them.</h1><p class="muted">Register your trade business, define your service area and see matching customer requests.</p><div class="warning">Tradie profiles are still demo data in this MVP. Customer leads are now stored in the real Supabase database.</div></div>
+<div class="card"><div class="small">TRADELEAD AI FOR BUSINESSES</div><h1>Get new jobs without chasing them.</h1><p class="muted">Register your trade business, define your service area and see matching customer requests.</p><div class="warning">This version uses browser storage for the demo. Production accounts, SMS and payments require a real backend.</div></div>
 <div class="card"><h2>Tradie registration</h2><form id="tradieForm">
 <label>Business name<input id="biz" required placeholder="Example Plumbing Pty Ltd"></label>
 <div class="grid"><label>Trade<select id="ttrade" required><option>Plumber</option><option>Electrician</option><option>Air conditioning / HVAC</option><option>Painter</option><option>Landscaper</option><option>Handyman</option><option>Builder</option><option>Removalist</option></select></label><label>Service postcode<input id="tpost" required placeholder="2000"></label></div>
@@ -47,80 +43,65 @@ button:disabled{opacity:.55;cursor:not-allowed}.grid{display:grid;grid-template-
 </section>
 
 <section id="admin" class="hidden">
-<div id="adminLogin" class="card">
-<h2>Admin access</h2><p class="muted">Sign in with your TradeLead AI admin email and password.</p>
-<form id="loginForm">
-<label>Admin email<input id="adminEmail" type="email" required placeholder="you@example.com"></label>
-<label>Password<input id="adminPassword" type="password" required placeholder="Your password"></label>
-<button class="primary" id="loginButton">Sign in to dashboard</button>
-</form>
-<div id="loginResult" class="hidden"></div>
-</div>
-<div id="adminPanel" class="card hidden">
-<div class="adminbar"><div><h2 style="margin-bottom:4px">TradeLead AI dashboard</h2><p class="muted" style="margin-bottom:0">Live leads from Supabase. Admin access is protected by Supabase authentication.</p></div><div><button class="ghost" onclick="renderAdmin()">Refresh</button> <button class="ghost" onclick="signOut()">Sign out</button></div></div>
-<div class="stats" style="margin-top:18px">
-<div class="stat"><span class="small">Customer leads</span><b id="sLeads">0</b></div><div class="stat"><span class="small">Qualified</span><b id="sQual">0</b></div><div class="stat"><span class="small">Tradies</span><b id="sTradies">0</b></div><div class="stat"><span class="small">Potential revenue</span><b id="sRevenue">$0</b></div></div>
-<div id="adminLeads" style="margin-top:18px"></div>
-</div>
+<div class="card"><h2>TradeLead AI dashboard</h2><p class="muted">Demo operations dashboard.</p><div class="stats">
+<div class="stat"><span class="small">Customer leads</span><b id="sLeads">0</b></div><div class="stat"><span class="small">Qualified</span><b id="sQual">0</b></div><div class="stat"><span class="small">Tradies</span><b id="sTradies">0</b></div><div class="stat"><span class="small">Potential revenue</span><b id="sRevenue">$0</b></div></div><div id="adminLeads" style="margin-top:18px"></div></div>
 </section>
+<section id="subscriptions" class="hidden"><div class="card"><h2>TradeLead AI subscriptions</h2><p class="muted">Choose a monthly plan to access qualified leads.</p><div class="grid">
+<div class="card"><h3>Starter</h3><div class="price">A$49/month</div><p>10 leads/month</p><a class="primary" href="https://buy.stripe.com/00w4gz5y3h1i8lCccFbsc00" target="_blank" rel="noopener">Subscribe</a></div>
+<div class="card"><h3>Pro</h3><div class="price">A$99/month</div><p>30 leads/month</p><a class="primary" href="https://buy.stripe.com/dRmeVd8KfdP61XefoRbsc01" target="_blank" rel="noopener">Subscribe</a></div>
+<div class="card"><h3>Business</h3><div class="price">A$199/month</div><p>100 leads/month</p><a class="primary" href="https://buy.stripe.com/dRmcN5f8D8uM45m5Ohbsc02" target="_blank" rel="noopener">Subscribe</a></div>
+</div></div></section>
+
+<section id="plans" class="hidden">
+  <div class="hero">
+    <div class="small">TRADELEAD AI FOR BUSINESSES</div>
+    <h1>Choose your plan.</h1>
+    <p class="muted">Get qualified local leads without chasing customers.</p>
+  </div>
+  <div class="grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <div class="card">
+      <h2>Starter</h2><p class="price">$49 AUD/month</p>
+      <p class="muted">10 leads per month</p>
+      <a class="primary" style="display:block;text-align:center;text-decoration:none" href="https://buy.stripe.com/00w4gz5y3h1i8lCccFbsc00" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+    <div class="card">
+      <h2>Pro</h2><p class="price">$99 AUD/month</p>
+      <p class="muted">30 leads per month</p>
+      <a class="primary" style="display:block;text-align:center;text-decoration:none" href="https://buy.stripe.com/dRmeVd8KfdP61XefoRbsc01" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+    <div class="card">
+      <h2>Business</h2><p class="price">$199 AUD/month</p>
+      <p class="muted">100 leads per month</p>
+      <a class="primary" style="display:block;text-align:center;text-decoration:none" href="https://buy.stripe.com/dRmcN5f8D8uM45m5Ohbsc02" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="plans" class="hidden"><div class="card" style="margin-bottom:18px;text-align:center"><div class="small">TRADELEAD AI FOR TRADIES</div><h1 style="margin:8px 0;font-size:44px;letter-spacing:-2px">Simple plans. More jobs.</h1><p class="muted">Choose a monthly plan to access qualified customer leads.</p></div><div class="plans"><div class="card plan"><h3>Starter</h3><div class="price">A$49<span class="small">/month</span></div><p class="muted">10 leads per month</p><a class="primary" style="display:block;text-align:center;text-decoration:none" href="https://buy.stripe.com/00w4gz5y3h1i8lCccFbsc00" target="_blank" rel="noopener">Subscribe</a><ul><li>Qualified local leads</li><li>Lead matching</li><li>Dashboard access</li></ul></div><div class="card plan featured"><span class="badge">MOST POPULAR</span><h3>Pro</h3><div class="price">A$99<span class="small">/month</span></div><p class="muted">30 leads per month</p><a class="primary" style="display:block;text-align:center;text-decoration:none" href="https://buy.stripe.com/dRmeVd8KfdP61XefoRbsc01" target="_blank" rel="noopener">Subscribe</a><ul><li>Everything in Starter</li><li>3× more leads</li><li>Priority opportunity access</li></ul></div><div class="card plan"><h3>Business</h3><div class="price">A$199<span class="small">/month</span></div><p class="muted">100 leads per month</p><a class="primary" style="display:block;text-align:center;text-decoration:none" href="https://buy.stripe.com/dRmcN5f8D8uM45m5Ohbsc02" target="_blank" rel="noopener">Subscribe</a><ul><li>Everything in Pro</li><li>High-volume lead access</li><li>Built for growing teams</li></ul></div></div></section>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL='https://hqkueutxkyajqkwfsguv.supabase.co';
-const SUPABASE_KEY='sb_publishable_PX3H9YZwTgVUGvqmcCmCMA_14fUv6DT';
-const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const LK='tla_leads_v2',TK='tla_tradies_v2';
 const $=id=>document.getElementById(id);
 const leads=()=>JSON.parse(localStorage.getItem(LK)||'[]');
 const tradies=()=>JSON.parse(localStorage.getItem(TK)||'[]');
 const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function score(x){let s=50;if(x.phone)s+=10;if(x.email)s+=10;if(x.job.length>35)s+=10;if(['Today','Emergency'].includes(x.urgency))s+=10;if(x.location)s+=5;if(x.trade)s+=5;return Math.min(100,s)}
-function tab(id,b){['customer','tradie','admin'].forEach(x=>$(x).classList.toggle('hidden',x!==id));document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='tradie')renderTradie();if(id==='admin')initAdmin()}
-$('leadForm').onsubmit=async e=>{
-e.preventDefault();const button=$('submitLead');button.disabled=true;button.textContent='Submitting…';
-const x={trade:$('trade').value,job:$('job').value.trim(),location:$('location').value.trim(),urgency:$('urgency').value,name:$('name').value.trim(),phone:$('phone').value.trim(),email:$('email').value.trim()};
-const leadScore=score(x);
-const {error}=await db.from('leads').insert({trade:x.trade,job_description:x.job,postcode:x.location,urgency:x.urgency,customer_name:x.name,phone:x.phone,email:x.email,lead_score:leadScore,status:'new'});
-button.disabled=false;button.textContent='Find me a tradie →';
-if(error){$('customerResult').className='error';$('customerResult').innerHTML='<b>We could not submit your request.</b><p>Please try again in a moment.</p>';return}
-$('leadForm').reset();$('customerResult').className='success';$('customerResult').innerHTML=`<h3>Request received ✓</h3><p>Thanks, ${esc(x.name)}. Your ${esc(x.trade)} request has been submitted.</p><p>Lead qualification: <b>${leadScore}/100</b>.</p>`;
-};
-$('tradieForm').onsubmit=e=>{e.preventDefault();let x={id:Date.now(),business:$('biz').value.trim(),trade:$('ttrade').value,postcode:$('tpost').value.trim(),phone:$('tphone').value.trim(),email:$('temail').value.trim(),created:new Date().toISOString()};let a=tradies();a.push(x);save(TK,a);$('tradieForm').reset();$('tradieResult').className='success';$('tradieResult').innerHTML=`<b>Profile created ✓</b><p>${esc(x.business)} is registered for ${esc(x.trade)} in ${esc(x.postcode)}.</p>`;renderTradie();};
-function match(l,t){return l.lead_score>=75&&l.trade===t.trade&&String(l.postcode).replace(/\D/g,'').slice(0,2)===String(t.postcode).replace(/\D/g,'').slice(0,2)}
-function renderTradie(){let a=tradies();$('tradieLeads').innerHTML=a.length?a.map(t=>`<div class="lead"><b>${esc(t.business)}</b><div class="small">${esc(t.trade)} · ${esc(t.postcode)}</div><div class="empty">Live lead matching will be enabled after tradie authentication is added.</div></div>`).join(''):'<div class="empty">Register a tradie profile above to see matching leads.</div>'}
-async function initAdmin(){const {data:{session}}=await db.auth.getSession();$('adminLogin').classList.toggle('hidden',!!session);$('adminPanel').classList.toggle('hidden',!session);if(session)await renderAdmin()}
-$('loginForm').onsubmit=async e=>{
-e.preventDefault();
-const button=$('loginButton');
-button.disabled=true;
-button.textContent='Signing in…';
-$('loginResult').className='hidden';
-const email=$('adminEmail').value.trim();
-const password=$('adminPassword').value;
-const {error}=await db.auth.signInWithPassword({email,password});
-button.disabled=false;
-button.textContent='Sign in to dashboard';
-if(error){
-$('loginResult').className='error';
-$('loginResult').innerHTML='<b>Sign-in failed.</b><p>'+esc(error.message||'Please check your email and password and try again.')+'</p>';
-return;
-}
-$('loginResult').className='success';
-$('loginResult').innerHTML='<b>Signed in ✓</b><p>Opening your dashboard…</p>';
-await initAdmin();
-};
-async function signOut(){await db.auth.signOut();$('adminPassword').value='';await initAdmin()}
-async function renderAdmin(){
-const {data,error}=await db.from('leads').select('*').order('created_at',{ascending:false});
-if(error){$('adminLeads').innerHTML='<div class="error"><b>Could not load leads.</b><p>Please refresh and try again.</p></div>';return}
-const a=data||[],q=a.filter(x=>(x.lead_score||0)>=75),claimed=a.filter(x=>x.status==='claimed');
-$('sLeads').textContent=a.length;$('sQual').textContent=q.length;$('sTradies').textContent=tradies().length;$('sRevenue').textContent='$'+(claimed.length*45);
-$('adminLeads').innerHTML=a.length?a.map(x=>`<div class="lead"><div class="leadtop"><b>${esc(x.trade)} · ${esc(x.postcode)}</b><span class="score">${x.lead_score||0}/100</span></div><p>${esc(x.job_description)}</p><div class="small">${esc(x.customer_name)} · ${esc(x.email)} · ${esc(x.phone)} · ${esc(x.status||'new')} · ${new Date(x.created_at).toLocaleString('en-AU')}</div></div>`).join(''):'<div class="empty">No leads yet. Submit a test request from the customer tab.</div>';
-}
-db.auth.onAuthStateChange((_event,session)=>{if(session&&document.getElementById('admin')&&!document.getElementById('admin').classList.contains('hidden'))initAdmin()});
-initAdmin();
+function tab(id,b){['customer','tradie','admin','subscriptions'].forEach(x=>$(x).classList.toggle('hidden',x!==id));document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='tradie')renderTradie();if(id==='admin')renderAdmin()}
+$('leadForm').onsubmit=e=>{e.preventDefault();let x={id:Date.now(),trade:$('trade').value,job:$('job').value.trim(),location:$('location').value.trim(),urgency:$('urgency').value,name:$('name').value.trim(),phone:$('phone').value.trim(),email:$('email').value.trim(),created:new Date().toISOString()};x.score=score(x);x.qualified=x.score>=75;x.status='new';let a=leads();a.unshift(x);save(LK,a);$('leadForm').reset();$('customerResult').className='success';$('customerResult').innerHTML=`<h3>Request received ✓</h3><p>Thanks, ${esc(x.name)}. Your ${esc(x.trade)} request has been submitted.</p><p>Lead qualification: <b>${x.score}/100</b>.</p>`;};
+$('tradieForm').onsubmit=e=>{e.preventDefault();if(!requireSubscription())return;let x={id:Date.now(),business:$('biz').value.trim(),trade:$('ttrade').value,postcode:$('tpost').value.trim(),phone:$('tphone').value.trim(),email:$('temail').value.trim(),created:new Date().toISOString()};let a=tradies();a.push(x);save(TK,a);$('tradieForm').reset();$('tradieResult').className='success';$('tradieResult').innerHTML=`<b>Profile created ✓</b><p>${esc(x.business)} is registered for ${esc(x.trade)} in ${esc(x.postcode)}.</p>`;renderTradie();};
+function match(l,t){return l.qualified&&l.trade===t.trade&&String(l.location).replace(/\D/g,'').slice(0,2)===String(t.postcode).replace(/\D/g,'').slice(0,2)}
+function renderTradie(){let a=tradies(),ls=leads();$('tradieLeads').innerHTML=a.length? a.map(t=>{let m=ls.filter(l=>match(l,t));return `<div class="lead"><b>${esc(t.business)}</b><div class="small">${esc(t.trade)} · ${esc(t.postcode)}</div>${m.length?m.map(l=>`<div class="lead"><div class="leadtop"><b>${esc(l.trade)} job</b><span class="score">${l.score}/100</span></div><p>${esc(l.job)}</p><div class="small">${esc(l.location)} · ${esc(l.urgency)}</div><div class="price" style="margin-top:8px">$45 lead</div><button class="ghost" style="margin-top:8px" onclick="claim(${l.id},${t.id})">Claim lead (demo)</button></div>`).join(''):'<div class="empty">No matching qualified leads yet.</div>'}</div>`}).join(''):'<div class="empty">Register a tradie profile above to see matching leads.</div>'}
+function claim(id,tid){if(!requireSubscription())return;let a=leads(),i=a.findIndex(x=>x.id===id);if(i>=0){a[i].status='claimed';a[i].claimedBy=tid;save(LK,a);alert('Demo claim recorded. No payment has been charged.');renderTradie();renderAdmin()}}
+function renderAdmin(){let a=leads(),t=tradies(),q=a.filter(x=>x.qualified),claimed=a.filter(x=>x.status==='claimed');$('sLeads').textContent=a.length;$('sQual').textContent=q.length;$('sTradies').textContent=t.length;$('sRevenue').textContent='$'+(claimed.length*45);$('adminLeads').innerHTML=a.length?a.map(x=>`<div class="lead"><div class="leadtop"><b>${esc(x.trade)} · ${esc(x.location)}</b><span class="score">${x.score}/100</span></div><p>${esc(x.job)}</p><div class="small">${esc(x.name)} · ${esc(x.email)} · ${esc(x.phone)} · ${x.status}</div></div>`).join(''):'<div class="empty">No leads yet.</div>'}
+renderAdmin();
+
+<script>
+function activeSubscription(){try{const x=JSON.parse(localStorage.getItem('tla_subscription')||'null');return !!(x&&x.status==='active'&&['starter','pro','business'].includes(String(x.plan).toLowerCase()))}catch(e){return false}}
+function requireSubscription(){if(activeSubscription())return true;alert('An active TradeLead AI subscription is required to access tradie leads. Please choose a plan from the Plans tab.');return false}
+</script>
 </script>
 </body>
 </html>
